@@ -46,8 +46,56 @@ public class Circus {
     }
 
     public static void main(String[] args) {
-        makeAnimalsTalk();
-        System.out.println("Total value of animals " + calculateAssetValue(animals));
-        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+//        System.out.println("number of animals in the circus: " + animals.length);
+//
+//        printAllAnimals();
+
+//        animals[3] = new Elephant("Strong one");
+
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        animalArrayList.add(new Elephant("strong one"));
+//        printAllAnimals();
+        printNumberOfAnimals(animalArrayList);
+
+        animalArrayList.add(new Duck("Andy"));
+        Tiger sherKhan = new Tiger("Sher Khan");
+        animalArrayList.add(sherKhan);
+        Parrot bobby = new Parrot("Bobby");
+        animalArrayList.add(bobby);
+
+        System.out.println("Position of Sher Khan in the arraylist is: " +
+                animalArrayList.indexOf(sherKhan));
+
+        System.out.println("Before sorting");
+        printAllAnimals(animalArrayList);
+//        Animal candidate = findAnimal(animalArrayList,"Polly");
+
+        animalArrayList.sort(Animal.AnimalNameComparator);
+
+        System.out.println("After sorting");
+        printAllAnimals(animalArrayList);
+
+//        makeAnimalsTalk();
+//        System.out.println("Total value of animals " + calculateAssetValue(animals));
+//        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+    }
+
+    private static void printAllAnimals(ArrayList<Animal> animalArrayList) {
+        for (Animal a : animalArrayList) {
+            System.out.println(a);
+        }
+    }
+
+    private static void printNumberOfAnimals(ArrayList<Animal> animalArrayList) {
+        System.out.println("number of animals in the circus (AL): " + animalArrayList.size());
+    }
+
+    private static Animal findAnimal (ArrayList<Animal> animalArrayList, String name){
+        for (Animal a: animalArrayList){
+            if (a.name == name){
+                return a;
+            }
+        }
+        return null;
     }
 }
