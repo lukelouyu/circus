@@ -1,22 +1,25 @@
 package circus;
 
-import circus.stuff.Equipment;
-import circus.stuff.Cannon;
-import circus.stuff.Ladder;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import circus.animal.Animal;
 import circus.animal.Duck;
+import circus.animal.Elephant;
 import circus.animal.Parrot;
 import circus.animal.Tiger;
+import circus.stuff.Cannon;
+import circus.stuff.Equipment;
+import circus.stuff.Ladder;
 
 
 public class Circus {
-    private static Animal[] animals = {
+    private static final Animal[] animals = {
             new Duck("Drake"),
             new Parrot("Polly"),
             new Tiger("Tai Lung")
     };
-    private static Equipment[] equipments = {
+    private static final Equipment[] equipments = {
             new Ladder(50),
             new Cannon(5),
             new Cannon(100)
